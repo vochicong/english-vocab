@@ -20,10 +20,17 @@ Multilingual English vocabulary tracker with spaced repetition (Anki-style). The
 
 ## Word Entry Format
 
-Each word has: number, word, IPA pronunciation, 日本語 translation, Tiếng Việt translation, context, and review tracking columns.
+Each word has: number, word, IPA pronunciation, 日本語 translation, Tiếng Việt translation, context, tags, and review tracking columns.
+
+## Tags
+
+- Comma-separated, lowercase, hyphenated for multi-word (e.g., `dev-anti-pattern, idiom`)
+- A word can have multiple tags
+- When adding a word, infer or ask for appropriate tags
 
 ## Workflow
 
-- When the user asks to **explain a word**: add it to `vocab.md` with translations, IPA, and initial review state (interval=1d, next review=today).
-- When the user says **"quiz me"**: select overdue words, quiz one at a time, then update review tracking.
+- When the user asks to **explain a word**: add it to `vocab.md` with translations, IPA, tags, and initial review state (interval=1d, next review=today).
+- **"quiz me"**: select most overdue words across all tags.
+- **"quiz me on [tag]"**: filter by tag, then pick most overdue.
 - **Commit once per session** (not per quiz question) — batch all changes into a single commit at the end.
